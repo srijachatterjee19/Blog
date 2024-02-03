@@ -1,10 +1,26 @@
 import React from 'react';
 import './style.css';
+import Chip from '../../../common/Chip';
 
-const BlogItem = ({blog}) => {
+
+//using destructor to get blog data
+const BlogItem = ({
+    blog: {
+    id,
+    description,
+    title,
+    createdAt,
+    authorName,
+    authorAvatar,
+    category,
+    cover
+    },
+  }) => {
   return (
-    <div className=''>
-      <h1>Blog item</h1>
+    <div className="blogItem-wrapper">
+        <img src={cover} alt="cover"/>
+        <Chip label={category} />
+
     </div>
   );
 };
