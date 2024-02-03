@@ -1,6 +1,8 @@
 import React from 'react';
 import Header from '../../components/Home/Header';
 import SearchBar from '../../components/Home/Header/SearchBar';
+import BlogList from '../../components/Home/BlogList';
+import { blogList } from '../../config/data';
 
 
 const Home = () => {
@@ -9,11 +11,13 @@ const Home = () => {
         {/* Header */}
         <Header/>
 
-        {/* SearchBar */}
+        {/* SearchBar */} 
 
         <SearchBar/>
 
         {/* Blog List and Empty list */}
+        <BlogList blogs={blogList}/>
+
     </div>
   );
 };
