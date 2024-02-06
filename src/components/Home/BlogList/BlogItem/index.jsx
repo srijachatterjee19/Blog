@@ -1,26 +1,41 @@
 import React from 'react';
 import './style.css';
 import Chip from '../../../common/Chip';
-
+import { Link } from 'react-router-dom';
 
 //using destructor to get blog data
 const BlogItem = ({
-    blog: {
-    id,
+  blog: {
     description,
     title,
     createdAt,
     authorName,
     authorAvatar,
+    cover,
     category,
-    cover
-    },
+    id,
+  },
   }) => {
   return (
-    <div className="blogItem-wrapper">
-        <img src={cover} alt="cover"/>
-        <Chip label={category} />
+    <div className='blogItem-wrapper'>
+      <img className='blogItem-cover' src={cover} alt='cover' />
+      <Chip label={category} />
+      <h3>{title}</h3>
+      <p className='blogItem-desc'>{description}</p>
 
+        {/* author's name, blog creation date and arrow to redirect to blog item */}
+        <footer>
+        <div className='blogItem-author'>
+          <img src={authorAvatar} alt='avatar' />
+          <div>
+            <h6>{authorName}</h6>
+            <p>{createdAt}</p>
+          </div>
+        </div>
+        <Link className='blogItem-link' to={`/blog/${id}`}>
+          ➝
+        </Link>
+      </footer>
     </div>
   );
 };
